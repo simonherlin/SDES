@@ -37,4 +37,23 @@ class BinaryOperation {
         }
         return temp2;
     }
+
+    public int[] decToBinArrLg8(int no){
+        if(no==0){
+            int[] zero = new int[2];
+            zero[0] = 0;
+            zero[1] = 0;
+            return zero;
+        }
+        int[] temp = new int[10] ;
+        for(int i= 0 ; no!= 0 ; i++){
+            temp[i] = no % 2;
+            no = no/2;
+        }
+        int[] temp2 = new int[8];
+        for(int i=8-1, j=0;i>=0 && j<8;i--,j++){
+            temp2[j] = temp[i];
+        }
+        return temp2;
+    }
 }
