@@ -6,6 +6,7 @@ public class Treament {
     public Treament(){
         this.binaryOperation = new BinaryOperation();
     }
+
     public String letterToBitString(int i, String input){
         char c = input.charAt(i);
         int intOfChar = (int)c;
@@ -26,5 +27,4 @@ public class Treament {
         }
         return temp;
     }
-
 }

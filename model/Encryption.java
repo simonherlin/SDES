@@ -96,7 +96,6 @@ public class Encryption{
 
     private int[] sBox(int line1, int line2, int column1, int column2, boolean choiceSbox){
         this.binaryOperation = new BinaryOperation();
-
         int row = this.binaryOperation.binToDec(line1,line2);
         int col = this.binaryOperation.binToDec(column1,column2);
         int result;
@@ -167,36 +166,22 @@ public class Encryption{
         InitialPermutation();
         int[] LH = this.constructionLeftRightHalf(0);
         int[] RH = this.constructionLeftRightHalf(4);
-
-        //first round with sub-key K1
         int[] r1 = new int[8];
         r1 = functionFk(LH,RH,k1);
-
-        //Switch the left half & right half of about output
         int[] temp = new int[8];
         temp = switchSW(r1);
-
-        // again saperate left half & right half for second round
         LH[0] = temp[0];
         LH[1] = temp[1];
         LH[2] = temp[2];
         LH[3] = temp[3];
-
         RH[0] = temp[4];
         RH[1] = temp[5];
         RH[2] = temp[6];
         RH[3] = temp[7];
-
-        //second round with sub-key K2
         int[] r2 = new int[8];
         r2 = functionFk(LH,RH,this.k2);
-
         bitOfChar = r2;
-
-
         InverseInitialPermutation();
-
-        //Encryption done... return 8-bit output .
         return bitOfChar;
     }
 }
