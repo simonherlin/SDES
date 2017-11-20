@@ -38,6 +38,6 @@ public class View {
 
     public void showResultDecrypt(String encrypt, String decrypt){
         System.out.println("Decrypting ...............");
-        System.out.println("Data encrypt = "+ encrypt+"\nData encrypt = "+decrypt);
+        System.out.println("Data decrypt = "+ encrypt+"\nData encrypt = "+decrypt);
     }
 }

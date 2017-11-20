@@ -11,11 +11,13 @@ public class main {
         int[] data = new int[8];
         String encrypt="", decrypt="";
         view.intro();
+        //key generation
         keyGeneration.GenerateKeys(view.enterKey());
         if (!keyGeneration.getFlagkey()){
             view.errorEnterkey();
             return;
         }
+        // crypt
         String input = view.selectText();
         for (int i =0; i < input.length();i++){
             String value = treament.letterToBitString(i,input);
@@ -23,7 +25,7 @@ public class main {
             encrypt += treament.bitToString(data);
         }
         view.showResultEncrypt(input, encrypt);
-
+        //decrypt
         for (int i =0; i < input.length();i++){
             String value = treament.letterToBitString(i,encrypt);
             data = encryption.decrypt(value,keyGeneration.getK1(),keyGeneration.getK2());

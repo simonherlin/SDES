@@ -185,7 +185,6 @@ public class Encryption{
         return bitOfChar;
     }
 
-
     public int[] decrypt(String plaintext, int[] LK, int[] RK){
         SaveParameters(plaintext,LK,RK);
         InitialPermutation();
