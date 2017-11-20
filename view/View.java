@@ -31,7 +31,13 @@ public class View {
         System.out.println("Invalid text");
     }
 
-    public void showResult(String input, String encrypt){
+    public void showResultEncrypt(String input, String encrypt){
+        System.out.println("Encrypting ...............");
         System.out.println("Data no encrypt = "+ input+"\nData encrypt = "+encrypt);
+    }
+
+    public void showResultDecrypt(String encrypt, String decrypt){
+        System.out.println("Decrypting ...............");
+        System.out.println("Data encrypt = "+ encrypt+"\nData encrypt = "+decrypt);
     }
 }

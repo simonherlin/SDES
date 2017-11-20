@@ -184,4 +184,29 @@ public class Encryption{
         InverseInitialPermutation();
         return bitOfChar;
     }
+
+
+    public int[] decrypt(String plaintext, int[] LK, int[] RK){
+        SaveParameters(plaintext,LK,RK);
+        InitialPermutation();
+        int[] LH = this.constructionLeftRightHalf(0);
+        int[] RH = this.constructionLeftRightHalf(4);
+        int[] r2 = new int[8];
+        r2 = functionFk(LH,RH,this.k2);
+        int[] temp = new int[8];
+        temp = switchSW(r2);
+        LH[0] = temp[0];
+        LH[1] = temp[1];
+        LH[2] = temp[2];
+        LH[3] = temp[3];
+        RH[0] = temp[4];
+        RH[1] = temp[5];
+        RH[2] = temp[6];
+        RH[3] = temp[7];
+        int[] r1 = new int[8];
+        r1 = functionFk(LH,RH,k1);
+        bitOfChar = r1;
+        InverseInitialPermutation();
+        return bitOfChar;
+    }
 }

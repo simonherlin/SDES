@@ -9,7 +9,7 @@ public class main {
         View view = new View();
         Treament treament = new Treament();
         int[] data = new int[8];
-        String encrypt="";
+        String encrypt="", decrypt="";
         view.intro();
         keyGeneration.GenerateKeys(view.enterKey());
         if (!keyGeneration.getFlagkey()){
@@ -22,6 +22,13 @@ public class main {
             data = encryption.encrypt(value,keyGeneration.getK1(),keyGeneration.getK2());
             encrypt += treament.bitToString(data);
         }
-        view.showResult(input, encrypt);
+        view.showResultEncrypt(input, encrypt);
+
+        for (int i =0; i < input.length();i++){
+            String value = treament.letterToBitString(i,encrypt);
+            data = encryption.decrypt(value,keyGeneration.getK1(),keyGeneration.getK2());
+            decrypt += treament.bitToString(data);
+        }
+        view.showResultDecrypt(encrypt, decrypt);
     }
 }
